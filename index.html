@@ -1,1 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Al-Haram Travels and Tours</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    :root {
+      background: linear-gradient(135deg, #e8f6ef 0%, #f5f5f5 100%);
+      --white: #FFFFFF;
+      --black: #000000;
+    }
+
+    body {
+      background: var(--bg);
+      color: #2c3e50;
+      font-size: 1.08em;
+      line-height: 1.7;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-size: 2em;
+      color: #1e824c;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 2em;
+      color: #1e824c;
+      margin-bottom: 18px;
+    }
+
+    h3 {
+      font-size: 1.3em;
+      color: #1e824c;
+      margin-bottom: 12px;
+    }
+
+    .btn {
+      position: fixed;
+      top: 20px;
+      right: 4%;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      border: none;
+      color: white;
+      background-color: black;
+    }
+
+    .light-theme {
+      --bg: var(--green);
+      --fontColor: var(--black);
+      --btnBg: var(--black);
+      --btnFontColor: var(--white);
+    }
+
+    .dark-theme {
+      --bg: var(--black);
+      --fontColor: var(--green);
+      --btnBg: var(--white);
+      --btnFontColor: var(--black);
+    }
+
+    header {
+      background: linear-gradient(90deg, #1e824c 60%, #16a085 100%);
+      padding: 32px 0 20px 0;
+      color: white;
+      text-align: center;
+      border-bottom-left-radius: 1px;
+      border-bottom-right-radius: 1px;
+      box-shadow: 0 4px 16px rgba(30, 130, 76, 0.1);
+    }
+
+    .navbar {
+      background: rgba(30, 130, 76, 0.85);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 24px rgba(30, 130, 76, 0.18);
+      border-bottom: 2px solid #16a085;
+    }
+
+    .navbar-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1000px;
+      margin: 0 auto;
+      height: 80px;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .navbar-brand img {
+      height: 54px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(30, 130, 76, 0.12);
+      background: transparent;
+    }
+
+    .navbar-brand span {
+      font-size: 1.35em;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+
+    .navbar-nav .nav-link {
+      font-size: 1.08em;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .navbar-nav {
+      display: flex;
+      gap: 24px;
+    }
+
+    .navbar-nav a {
+      color: #fff;
+      padding: 10px 22px;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 8px;
+      font-size: 1.08em;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+
+    .navbar-nav a:hover {
+      background: #fff;
+      color: #1e824c;
+      box-shadow: 0 2px 8px rgba(30, 130, 76, 0.1);
+    }
+
+    .hero {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(30, 130, 76, 0.18);
+      margin: 32px auto 0 auto;
+      max-width: 1100px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg,
+          rgba(30, 130, 76, 0.35) 0%,
+          rgba(22, 160, 133, 0.25) 100%);
+      z-index: 1;
+    }
+
+    .carousel-caption {
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 12px;
+      padding: 24px;
+      color: #1e824c;
+      box-shadow: 0 2px 12px rgba(30, 130, 76, 0.08);
+      animation: fadeInUp 1s;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section,
+    .card,
+    .contact,
+    footer {
+      font-size: 1.08em;
+    }
+
+    section {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 18px;
+      box-shadow: 0 2px 16px rgba(30, 130, 76, 0.09);
+      margin-bottom: 40px;
+    }
+
+    section h2 {
+      color: #1e824c;
+      margin-bottom: 18px;
+      font-size: 2em;
+      font-weight: 600;
+    }
+
+    .packages {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(30, 130, 76, 0.13);
+      transition: transform 0.25s, box-shadow 0.25s;
+      backdrop-filter: blur(4px);
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.04);
+      box-shadow: 0 12px 32px rgba(22, 160, 133, 0.18);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      color: #1e824c;
+      font-size: 1.3em;
+      font-weight: 600;
+    }
+
+    .contact {
+      background: linear-gradient(90deg, #dff0e2 70%, #b8e0d2 100%);
+      padding: 40px 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(30, 130, 76, 0.07);
+      margin-top: 24px;
+    }
+
+    /* Add to your <style> section */
+    .rotate-on-scroll {
+      transition: transform 0.7s cubic-bezier(.68, -0.55, .27, 1.55), box-shadow 0.3s;
+    }
+
+    [data-aos="zoom-in"].rotate-on-scroll {
+      transform: rotate(-8deg);
+    }
+
+    .rotate-on-scroll:hover {
+      transform: rotate(8deg) scale(1.08);
+      box-shadow: 0 8px 32px rgba(22, 160, 133, 0.18);
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: #25d366;
+      color: white;
+      font-size: 2.2em;
+      padding: 14px 18px;
+      border-radius: 50%;
+      box-shadow: 0 4px 16px rgba(30, 130, 76, 0.18);
+      z-index: 999;
+      transition: background 0.2s;
+    }
+
+    .whatsapp-float:hover {
+      background: #128c7e;
+      color: #fff;
+    }
+
+    .collage-gallery {
+      gap: 18px !important;
+      padding-bottom: 12px;
+    }
+
+    .collage-img {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    @media (max-width: 767px) {
+      #team-collage .row>div {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+    }
+
+    @media (max-width: 575px) {
+      #team-collage .row>div {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+    }
+
+    .collage-img:hover {
+      transform: scale(1.08) rotate(-2deg);
+      box-shadow: 0 12px 32px rgba(22, 160, 133, 0.18);
+    }
+
+    .theme-toggle {
+      display: inline-block;
+      position: relative;
+      vertical-align: middle;
+    }
+
+    .toggle-label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      width: 54px;
+      height: 28px;
+      background: #e8f6ef;
+      border-radius: 16px;
+      position: relative;
+      transition: background 0.3s;
+      box-shadow: 0 2px 8px rgba(30, 130, 76, 0.08);
+      overflow: hidden;
+    }
+
+    .toggle-ball {
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: 20px;
+      height: 20px;
+      background: #1e824c;
+      border-radius: 50%;
+      transition: left 0.3s, background 0.3s;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sun-icon,
+    .moon-icon {
+      position: absolute;
+      font-size: 1.1em;
+      color: #f7d358;
+      transition: opacity 0.3s, transform 0.4s;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    .moon-icon {
+      color: #222;
+      opacity: 0;
+      transform: rotate(-90deg) scale(0.7);
+    }
+
+    .sun-icon {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+
+    #theme-switch:checked+.toggle-label {
+      background: #222;
+    }
+
+    #theme-switch:checked+.toggle-label .toggle-ball {
+      left: 30px;
+      background: #fff;
+    }
+
+    #theme-switch:checked+.toggle-label .sun-icon {
+      opacity: 0;
+      transform: rotate(90deg) scale(0.7);
+    }
+
+    #theme-switch:checked+.toggle-label .moon-icon {
+      opacity: 1;
+      color: #f7d358;
+      transform: rotate(0deg) scale(1);
+    }
+
+    footer {
+      background: linear-gradient(90deg, #1e824c 60%, #16a085 100%);
+      color: white;
+      text-align: center;
+      padding: 18px 0;
+      margin-top: 40px;
+      box-shadow: 0 -4px 16px rgba(30, 130, 76, 0.1);
+      font-size: 1.1em;
+      font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+    }
+  </style>
+</head>
+
+<body class="dark-theme">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top"
+      style="background: linear-gradient(90deg, #1e824c 60%, #16a085 100%)">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img src="logo.png" alt="Logo" height="48" class="me-2" style="border-radius: 8px" />
+          <span>Al-Haram Travels and Tours</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+          aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#flyers">Packages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#gallery">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+
+
+        </div>
+
+        <div class="theme-toggle ms-3">
+          <input type="checkbox" id="theme-switch" hidden>
+          <label for="theme-switch" class="toggle-label">
+            <span class="toggle-ball">
+              <i class="bi bi-sun-fill sun-icon"></i>
+              <i class="bi bi-moon-stars-fill moon-icon"></i>
+            </span>
+          </label>
+        </div>
+
+
+      </div>
+    </nav>
+
+
+  </header>
+
+
+
+  <div class="hero">
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img1.jpg" class="d-block w-100" alt="Kaaba in Makkah" style="height: 70vh; object-fit: cover" />
+          <div class="carousel-caption d-none d-md-block">
+            <h1>Experience the Majesty of the Kaaba</h1>
+            <p>Begin your Umrah journey at the heart of Islam in Makkah.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="img2.webp" class="d-block w-100" alt="Madinah Mosque" style="height: 70vh; object-fit: cover" />
+          <div class="carousel-caption d-none d-md-block">
+            <h1>Peace and Serenity in Madinah</h1>
+            <p>
+              Visit the Prophet's Mosque and embrace spiritual tranquility.
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="pexels-photo-4321694.jpg" class="d-block w-100" alt="Pilgrims Performing Umrah"
+            style="height: 70vh; object-fit: cover" />
+          <div class="carousel-caption d-none d-md-block">
+            <h1>Join Thousands of Piligrims</h1>
+            <p>
+              Travel with comfort, guidance, and peace of mind on your Umrah.
+            </p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div><br>
+
+  <div class="container">
+
+    <h1 style="text-align: center;">Welcome to Al-Haram Travels and Tours</h1>
+
+    <p class="text-center mb-4" style="font-size: 1.15em; color: #1e824c;">Your trusted partner for a memorable and
+      spiritually enriching Umrah experience.<br>
+      We offer personalized packages, expert guidance, and unwavering support to ensure your pilgrimage is smooth and
+      fulfilling. </p>
+
+  </div>
+
+  <section id="about" data-aos="zoom-in">
+    <h2 class="mb-2 text-center" style="color: #16a085; font-size: 2.2em;">
+      About Us
+    </h2>
+
+    <div class="row justify-content-center mt-4">
+      <div class="col-lg-8">
+        <div class="card shadow-lg border-0 p-4 animate__animated animate__fadeIn"
+          style="background: linear-gradient(120deg, #e8f6ef 80%, #dff0e2 100%);">
+          <div class="row align-items-center">
+            <div class="col-md-4 text-center mb-3 mb-md-0">
+              <img src="director.jpg" alt="Director" class="img-fluid rounded-circle shadow"
+                style="max-width: 140px; border: 4px solid #1e824c" />
+            </div>
+            <div class="col-md-8">
+              <h4 class="mb-2" style="color: #1e824c">
+                Message from the Director
+              </h4>
+              <hr class="mb-3" style="border-top: 2px solid #1e824c; width: 60px" />
+              <p style="font-size: 1.08em">
+                "Welcome to Al-Haram Travels and Tours. Our mission is to
+                guide you on a meaningful and comfortable Umrah journey. We
+                are committed to excellence, integrity, and personalized care
+                for every piligrim. May your spiritual journey be blessed and
+                memorable."
+              </p>
+              <p class="fw-bold mb-0" style="color: #16a085">- K M FAIROZE</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mt-4">
+      <div class="col-lg-4 mb-3">
+        <div class="card border-0 shadow-sm p-4 h-100 animate__animated animate__fadeIn" style="background: #f5f5f5">
+          <h5 class="mb-2" style="color: #1e824c">Our Mission</h5>
+          <hr class="mb-3" style="border-top: 2px solid #1e824c; width: 50px" />
+          <p>
+            To provide every pilgrim with a safe, comfortable, and spiritually
+            enriching Umrah experience through personalized service, expert
+            guidance, and unwavering support.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-3">
+        <div class="card border-0 shadow-sm p-4 h-100 animate__animated animate__fadeIn" style="background: #f5f5f5">
+          <h5 class="mb-2" style="color: #1e824c">Our Vision</h5>
+          <hr class="mb-3" style="border-top: 2px solid #1e824c; width: 50px" />
+          <p>
+            To be the leading Umrah travel provider, recognized for our
+            integrity, excellence, and commitment to making every journey
+            memorable and meaningful.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Umrah Journey Section -->
+  <section id="umrah-journey" class="mb-5" data-aos="fade-up">
+    <h2 class="text-center mb-4" style="color:#16a085;">
+      <i class="bi bi-geo-alt"></i> What We Perform in Umrah
+    </h2>
+    <div class="container">
+      <div class="d-flex flex-row flex-nowrap justify-content-center align-items-center" style="overflow-x:auto;">
+        <div class="text-center mx-4" data-aos="zoom-in">
+          <img src="pencil-art1.png" alt="Ihram" class="mb-2 rounded shadow rotate-on-scroll"
+            style="height:110px; filter: grayscale(1);" data-aos="zoom-in" />
+          <div style="font-weight:600; color:#1e824c;">Ihram</div>
+          <small>Intention & Preparation</small>
+        </div>
+        <div class="route-dot"></div>
+        <div class="text-center mx-4" data-aos="zoom-in">
+          <img src="pencil-art2.png" alt="Tawaf" class="mb-2 rounded shadow rotate-on-scroll"
+            style="height:110px; filter: grayscale(1);" data-aos="zoom-in" />
+          <div style="font-weight:600; color:#1e824c;">Tawaf</div>
+          <small>Circling the Kaaba</small>
+        </div>
+        <div class="route-dot"></div>
+        <div class="text-center mx-4" data-aos="zoom-in">
+          <img src="pencil-art3.png" alt="Sa'i" class="mb-2 rounded shadow rotate-on-scroll"
+            style="height:110px; filter: grayscale(1);" data-aos="zoom-in" />
+          <div style="font-weight:600; color:#1e824c;">Sa'i</div>
+          <small>Walking Safa & Marwah</small>
+        </div>
+        <div class="route-dot"></div>
+        <div class="text-center mx-4" data-aos="zoom-in">
+          <img src="pencil-art4.png" alt="Halq/Taqsir" class="mb-2 rounded shadow rotate-on-scroll"
+            style="height:110px; filter: grayscale(1);" data-aos="zoom-in" />
+          <div style="font-weight:600; color:#1e824c;">Halq/Taqsir</div>
+          <small>Shaving/Cutting Hair</small>
+        </div>
+      </div>
+      <div class="text-center mt-3" style="color:#16a085;">
+        <i class="bi bi-arrow-right-circle" style="font-size:2em;"></i>
+        <span style="font-weight:600;">Your Spiritual Journey</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="flyers" class="mt-5" data-aos="fade-right">
+    <h2 class="text-center mb-4">Monthly Umrah Flyers</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-4 mb-4 d-flex">
+        <div class="card border-0 shadow-sm w-100 h-100 animate__animated animate__fadeIn d-flex flex-column">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#flyerModal1">
+            <img src="flyer1.jpg" class="card-img-top" alt="Umrah Flyer 1"
+              style="object-fit: cover; height:100%; cursor: pointer" />
+          </a>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title" style="color: #1e824c">
+              August 2025 Group
+            </h5>
+            <p class="card-text flex-grow-1">
+              Join our August Umrah group! Limited seats available. Contact us
+              for details.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4 d-flex">
+        <div class="card border-0 shadow-sm w-100 h-100 animate__animated animate__fadeIn d-flex flex-column">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#flyerModal2">
+            <img src="flyer2.jpg" class="card-img-top" alt="Umrah Flyer 2"
+              style="object-fit: cover; height: 100%; cursor: pointer" />
+          </a>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title" style="color: #1e824c">
+              September 2025 Group
+            </h5>
+            <p class="card-text flex-grow-1">
+              Reserve your spot for September! Special packages available for
+              families.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Add more flyers as needed -->
+    </div>
+  </section>
+
+  <!-- Flyer 1 Modal -->
+  <div class="modal fade" id="flyerModal1" tabindex="-1" aria-labelledby="flyerModal1Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="flyerModal1Label">
+            August 2025 Group Flyer
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="flyer1.jpg" alt="Umrah Flyer 1" class="img-fluid rounded shadow" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flyer 2 Modal -->
+  <div class="modal fade" id="flyerModal2" tabindex="-1" aria-labelledby="flyerModal2Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="flyerModal2Label">
+            September 2025 Group Flyer
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="flyer2.jpg" alt="Umrah Flyer 2" class="img-fluid rounded shadow" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <section id="team-collage" class="mb-5" data-aos="fade-up">
+    <h2 class="text-center mb-4" style="color:#16a085;">
+      <i class="bi bi-images"></i> Al-Haram Gallery
+    </h2>
+    <div class="d-flex flex-wrap justify-content-center gap-3 collage-gallery">
+      <img src="team1.jpg" class="collage-img" alt="Past Team 1" data-bs-toggle="modal" data-bs-target="#collageModal1"
+        style="width:220px; height:160px; object-fit:cover; border-radius:18px; box-shadow:0 4px 16px rgba(30,130,76,0.13); cursor:pointer;"
+        data-aos="zoom-in">
+      <img src="team2.jpg" class="collage-img" alt="Past Team 2" data-bs-toggle="modal" data-bs-target="#collageModal2"
+        style="width:180px; height:220px; object-fit:cover; border-radius:18px; box-shadow:0 4px 16px rgba(30,130,76,0.13); cursor:pointer;"
+        data-aos="zoom-in">
+      <img src="future1.jpg" class="collage-img" alt="Future Team 1" data-bs-toggle="modal"
+        data-bs-target="#collageModal3"
+        style="width:260px; height:160px; object-fit:cover; border-radius:18px; box-shadow:0 4px 16px rgba(30,130,76,0.13); cursor:pointer;"
+        data-aos="zoom-in">
+      <img src="team3.jpg" class="collage-img" alt="Past Team 3" data-bs-toggle="modal" data-bs-target="#collageModal4"
+        style="width:200px; height:200px; object-fit:cover; border-radius:18px; box-shadow:0 4px 16px rgba(30,130,76,0.13); cursor:pointer;"
+        data-aos="zoom-in">
+      <img src="future2.jpg" class="collage-img" alt="Future Team 2" data-bs-toggle="modal"
+        data-bs-target="#collageModal5"
+        style="width:160px; height:220px; object-fit:cover; border-radius:18px; box-shadow:0 4px 16px rgba(30,130,76,0.13); cursor:pointer;"
+        data-aos="zoom-in">
+   Add more images as needed 
+    </div>
+  </section> -->
+
+  <section id="team-collage" class="mb-5" data-aos="fade-up">
+    <h2 class="text-center mb-4" style="color:#16a085;">
+      <i class="bi bi-images"></i> Al-Haram Gallery
+    </h2>
+    <div class="container">
+      <div class="row g-3 justify-content-center">
+        <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in">
+          <img src="future2.jpg" class="collage-img w-100" alt="Future Team 2" data-bs-toggle="modal"
+            data-bs-target="#collageModal5"
+            style="aspect-ratio: 3/4; object-fit:cover; border-radius:18px; box-shadow:0 4px 16px rgba(30,130,76,0.13); cursor:pointer;">
+        </div>
+        <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in">
+          <img src="future2.jpg" class="collage-img w-100" alt="Future Team 2" data-bs-toggle="modal"
+            data-bs-target="#collageModal5"
+            style="aspect-ratio: 3/4; object-fit:cover; border-radius:18px; box-shadow:0 4px 16px rgba(30,130,76,0.13); cursor:pointer;">
+        </div>
+        <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in">
+          <img src="future2.jpg" class="collage-img w-100" alt="Future Team 2" data-bs-toggle="modal"
+            data-bs-target="#collageModal5"
+            style="aspect-ratio: 3/4; object-fit:cover; border-radius:18px; box-shadow:0 4px 16px rgba(30,130,76,0.13); cursor:pointer;">
+        </div>
+        <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in">
+          <img src="future2.jpg" class="collage-img w-100" alt="Future Team 2" data-bs-toggle="modal"
+            data-bs-target="#collageModal5"
+            style="aspect-ratio: 3/4; object-fit:cover; border-radius:18px; box-shadow:0 4px 16px rgba(30,130,76,0.13); cursor:pointer;">
+        </div>
+        <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in">
+          <img src="future2.jpg" class="collage-img w-100" alt="Future Team 2" data-bs-toggle="modal"
+            data-bs-target="#collageModal5"
+            style="aspect-ratio: 3/4; object-fit:cover; border-radius:18px; box-shadow:0 4px 16px rgba(30,130,76,0.13); cursor:pointer;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Collage Modals
+  <div class="modal fade" id="collageModal1" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-transparent border-0">
+        <div class="modal-body text-center p-0">
+          <img src="team1.jpg" class="img-fluid rounded shadow" alt="Past Team 1">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="collageModal2" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-transparent border-0">
+        <div class="modal-body text-center p-0">
+          <img src="team2.jpg" class="img-fluid rounded shadow" alt="Past Team 2">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="collageModal3" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-transparent border-0">
+        <div class="modal-body text-center p-0">
+          <img src="future1.jpg" class="img-fluid rounded shadow" alt="Future Team 1">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="collageModal4" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-transparent border-0">
+        <div class="modal-body text-center p-0">
+          <img src="team3.jpg" class="img-fluid rounded shadow" alt="Past Team 3">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="collageModal5" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-transparent border-0">
+        <div class="modal-body text-center p-0">
+          <img src="future2.jpg" class="img-fluid rounded shadow" alt="Future Team 2">
+        </div>
+      </div>
+    </div>
+  </div>  -->
+
+
+  <section id="contact" class="contact" data-aos="flip-up">
+    <h2>Contact Us</h2>
+    <p>📞 +94 77 794 8799 | 📧 www.alharam.lk | 📍 Colombo, Sri Lanka</p>
+    <p>We're here to assist you with all your Umrah-related inquiries.</p>
+  </section>
+
+  <a href="https://wa.me/94777948799" target="_blank" class="whatsapp-float">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
+  <footer>
+    <p>&copy; 2025 Al-Haram Travels and Tours. All rights reserved.</p>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 900,
+      once: true,
+    });
+  </script>
+
+  <script>
+    const themeSwitch = document.getElementById('theme-switch');
+
+    // Always start in light mode
+    document.body.classList.add('light-theme');
+    document.body.classList.remove('dark-theme');
+    themeSwitch.checked = false;
+
+    themeSwitch.addEventListener('change', function () {
+      if (this.checked) {
+        document.body.classList.add('dark-theme');
+        document.body.classList.remove('light-theme');
+      } else {
+        document.body.classList.add('light-theme');
+        document.body.classList.remove('dark-theme');
+      }
+    });
+
+  </script>
+
+  <script src="/app.js"></script>
+</body>
+
+</html>
